@@ -10,11 +10,11 @@ from langgraph.prebuilt import create_react_agent
 load_dotenv()
 
 # ── Load data ──────────────────────────────────────────────
-with open("data/flights.json") as f:
+with open("Data/flights.json") as f:
     flights_data = json.load(f)
-with open("data/hotels.json") as f:
+with open("Data/hotels.json") as f:
     hotels_data = json.load(f)
-with open("data/places.json") as f:
+with open("Data/places.json") as f:
     places_data = json.load(f)
 
 # ── Tools ──────────────────────────────────────────────────
