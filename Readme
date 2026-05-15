@@ -1,0 +1,153 @@
+# ✈️ Agentic AI-Based Travel Planning Assistant
+
+An intelligent travel planning system built using **LangChain**, **LangGraph**, and **Groq LLaMA 3.3** that autonomously plans complete trip itineraries based on user preferences.
+
+---
+
+## 🧠 What is Agentic AI?
+
+Unlike a standard chatbot that answers one question at a time, an **Agentic AI** system reasons across multiple steps and autonomously decides which tools to call to complete a complex task.
+
+In this project, the agent receives a travel query like:
+
+> _"Plan a 3-day trip to Delhi from Hyderabad within ₹20,000"_
+
+And autonomously:
+
+1. Searches for flights
+2. Recommends hotels
+3. Discovers tourist attractions
+4. Fetches live weather data
+5. Calculates total budget
+6. Generates a complete day-wise itinerary
+
+---
+
+## 🏗️ Project Structure
+
+```
+travel_agent/
+├── data/
+│   ├── flights.json        # Flight dataset (30 records)
+│   ├── hotels.json         # Hotel dataset (40 records)
+│   └── places.json         # Tourist places dataset (40 records)
+├── travel_agent.ipynb      # Development notebook
+├── app.py                  # Streamlit web application
+├── requirements.txt        # Python dependencies
+├── .env                    # API keys (not pushed to GitHub)
+├── .gitignore
+└── README.md
+```
+
+---
+
+## ⚙️ Tech Stack
+
+| Component        | Technology                       |
+| ---------------- | -------------------------------- |
+| LLM              | Groq LLaMA 3.3 70B (free)        |
+| Agent Framework  | LangGraph (ReAct Agent)          |
+| Tool Integration | LangChain Tools                  |
+| Weather API      | Open-Meteo (free, no key needed) |
+| UI               | Streamlit                        |
+| Language         | Python 3.x                       |
+
+---
+
+## 🛠️ Tools Built
+
+| Tool               | Description                                                          |
+| ------------------ | -------------------------------------------------------------------- |
+| `search_flights`   | Filters flights.json by source/destination, returns cheapest options |
+| `recommend_hotels` | Filters hotels.json by city and price, returns top-rated hotels      |
+| `find_places`      | Filters places.json by city, returns top attractions by rating       |
+| `get_weather`      | Calls Open-Meteo API for 5-day live weather forecast                 |
+| `estimate_budget`  | Calculates total trip cost (flight + hotel + food & transport)       |
+
+---
+
+## 🚀 Setup & Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/hamzashaikh-ai/travel-planning-agent
+cd travel-planning-agent
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Set up API key
+
+Create a `.env` file in the project root:
+
+```
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+Get your free Groq API key at: https://console.groq.com
+
+### 4. Run the Streamlit app
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📊 Sample Output
+
+```
+Trip Summary: 3-day trip to Delhi from Hyderabad
+
+Flight Selected:
+- IndiGo | ₹2907 | Departs: 11:32 | Arrives: 15:32
+
+Hotel Recommendation:
+- Comfort Suites | 5⭐ | ₹3650/night | Amenities: gym, breakfast, wifi, parking
+
+Day-wise Itinerary:
+Day 1: Famous Fort (4.6⭐), Popular Museum (4.5⭐) | ☀️ Sunny, Max 40°C
+Day 2: Beautiful Temple (4.2⭐), Historic Fort (4.2⭐) | ☀️ Sunny, Max 39.5°C
+Day 3: Famous Fort (3.5⭐) | ⛅ Cloudy, Max 40.7°C
+
+Budget Breakdown:
+- Flight:           ₹2,907
+- Hotel (3 nights): ₹10,950
+- Food & Transport: ₹2,400
+- Total:            ₹16,257
+```
+
+---
+
+## 📦 Dependencies
+
+```
+langchain
+langchain-community
+langchain-groq
+langgraph
+streamlit
+requests
+python-dotenv
+```
+
+---
+
+## 🔗 Data Sources
+
+- Flights, Hotels, Places: JSON datasets provided by Labmentix
+- Weather: [Open-Meteo API](https://open-meteo.com/) — free, no API key required
+
+---
+
+## 👤 Author
+
+**Muhammad Hamza Shaikh**  
+B.Tech AI & ML | P.P. Savani University  
+GitHub: [hamzashaikh-ai](https://github.com/hamzashaikh-ai)  
+LinkedIn: [linkedin.com/in/muhammadhamza-shaikh-698b90381](https://linkedin.com/in/muhammadhamza-shaikh-698b90381)
