@@ -113,9 +113,12 @@ def estimate_budget(flight_price: int, hotel_price_per_night: int, num_days: int
             f"- 💰  Total Estimate:    ₹{total}\n")
 
 # ── LLM & Agent ────────────────────────────────────────────
+# Works both locally (.env) and on Streamlit Cloud (secrets)
+api_key = st.secrets.get("GROQ_API_KEY") if hasattr(st, "secrets") else os.getenv("GROQ_API_KEY")
+
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
-    api_key=os.getenv("GROQ_API_KEY"),
+    api_key=api_key,
     temperature=0
 )
 
